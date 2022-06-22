@@ -1,5 +1,7 @@
 #include "Child.h"
 
+/*
+
 void Child::Initialize()
 {
 	m_Number = 0;
@@ -20,3 +22,4 @@ void Bullet::Output()
 {
 	cout << m_Number << endl;
 }
+*/

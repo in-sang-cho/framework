@@ -1,8 +1,12 @@
 #pragma once
 #include "Headers.h"
 #include <string>
+#include <vector>
+#include <map>
+#include <list>
 using namespace std;
 
+/*
 class Parent
 {
 private:
@@ -63,3 +67,4 @@ public:
 	void Initialize() { m_str = "CCC"; }
 	AAA::Output;
 };
+*/

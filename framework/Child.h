@@ -2,6 +2,7 @@
 #include "Class1.h"
 #include "Headers.h"
 
+/*
 class Child : public Parent
 {
 public:
@@ -17,3 +18,4 @@ public:
 	void Initialize();
 	void Output();
 };
+*/

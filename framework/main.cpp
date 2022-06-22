@@ -1,31 +1,201 @@
-// framework v0.2
+// framework v0.3
 
+#define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "Class1.h"
+#include <string>
+#include <vector>
+#include <map>
+#include <list>
 
-const int id_Child = 0;
-const int id_Bullet = 1;
+struct tagInfo
+{
+	int Number;
+
+	tagInfo() { };
+	~tagInfo() { };
+};
+
+// 생성자, 소멸자, 복사생성자
+// 깊은복사, 얕은복사
+/* 
+
+class Object
+{
+	
+};
 
 int main()
 {
-	Parent* p[2];
+}
+*/
 
-	p[id_Child] = new Child;
-	p[id_Bullet] = new Bullet;
+// 오버로딩, 오버라이딩
+/*
+	함수 내에서 똑같은 이름을 쓸 수 있는 3가지 방법
+	namespace::
+	오버로딩: 전달값의 갯수와 자료형에 따라서 선택적(자동)으로 호출되는 함수(복사생성자와 같다) 본인 클래스 내에서만 사용 가능
+	오버라이딩: 함수 이름과 전달값의 갯수, 자료형마저 완벽하게 일치하는 함수지만, 범위가 가족 함수로 넓다.
+	두 개가 전혀 다른 기능이므로 동시에 사용이 가능하다. 
+	결국은 어떻게 사용하고 호출할 것인가가 핵심이다.
 
-	for (int i = 0; i < 2; i++)
-		p[i]->Initialize();
+class Object
+{
+public:
+	virtual void Output()					────────────┬────────────────────────┐
+	{													│						 │
+		cout << "" << endl;								│						 │
+	}													│						 │
+										overloading		│						 │
+	virtual void Output(string _Obj)					│						 │
+	{													│						 │
+		cout << "" << endl;								│						 │
+	}										────────────┘					     │
+}																			     │
+															overriding		     │
+class AAA : public Object													     │
+{																			     │
+public:																		     │
+	void Output() override					────────────┐					     │
+	{													│						 │
+		cout << "" << endl;								│						 │
+	}													│						 │
+										overloading		│						 │
+	void Output(string _Obj) override					│						 │
+	{													│						 │
+		cout << "" << endl;								│						 │
+	}										────────────┴────────────────────────┘
+}
+*/
 
-	while(true)
-	{
-		system("cls");
-		for (int i = 0; i < 2; i++)
-			p[i]->Update();
-
-		for (int i = 0; i < 2; i++)
-			p[i]->Output();
-	}
+// 연산자 오버로딩
+/*
 	
+*/
+
+
+
+class Object
+{
+private:
+	int Number;
+	tagInfo Info;
+
+public:
+	Object& operator=(const Object& _Obj)		//	operator= <- 기능을 하나 더 만들어보겠다
+	{
+		Info.Number += _Obj.Info.Number;
+		return *this;
+	}
+
+	Object& operator++()
+	{
+		Info.Number += 1;
+		return *this;
+	}
+
+	void Output()
+	{
+		cout << Number << endl;
+	}
+
+public:
+	Object() { };
+	Object(int _Number) : Number{ _Number } { };
+	~Object() { };
+};
+/*
+class Object
+{
+private:
+	
+public:
+	int Number = 0;
+	char Name = 'a';
+
+public:
+	virtual Object* Clone() = 0;
+
+
+
+
+public:
+	// ** 사용자가 호출하지 않아도 스스로 호출된다
+	// ** 클래스가 생성된 직후 호출
+	Object()    // <- 생성자
+	{
+		cout << "생성자" << endl;
+	};
+	
+	// ** 사용자가 호출하는 시점에 호출된다
+	// ** 전달값의 갯수와 자료형에 따라서 선택적(자동)으로 호출됨
+	Object(int _Number) : Number(_Number)	// <- 복사 생성자─┐
+	{										//				 │
+		cout << "복사 생성자 int" << endl;	//				 │
+											//				 ↓
+		//Number = _Number;					// 깊은 복사의 도입부
+
+	};
+
+	/*
+	Object(float _Number)    // <- 복사 생성자
+	{
+		cout << "복사 생성자 float" << endl;
+
+		Number = (int)_Number;
+	};
+	Object(char _Name)
+	{
+		cout << "복사 생성자" << endl;
+
+		Name = _Name;
+	};
+
+	Object(tagInfo _Info)
+	{
+
+	}
+
+};
+
+class AAA : public Object
+{
+protected:
+	tagInfo m_Info;
+
+public:
+	virtual Object* Clone() override { return new AAA(*this); }
+
+	void Output() { cout << m_Info.Number << endl; }
+
+public:
+	AAA() {	};
+	AAA(tagInfo _Info) : Object(_Info) { };
+	~AAA() { };
+};
+
+map<string, Object*> PrototypeObject;
+
+Object* GetObject(string _str)
+{
+	map<string, Object*>::iterator iter = PrototypeObject.find(_str);
+	if (iter == PrototypeObject.end())
+		return nullptr;
+	else
+		return iter->second;
+
+	return nullptr;
+}
+*/
+
+int main(void)
+{
+	Object o1(10);
+	Object o2(o1);
+
+	o2 = o1;
+
+	++o2;
 
 	return 0;
 }
@@ -33,87 +203,15 @@ int main()
 // c++의 5가지 특징
 /*4
 	1. 정보은닉
-		public: 공개
-		private: 비공개
-		protected: 부모 자식 클래스 끼리만 일부 공개
 	2. 캡슐화
-		데이터와 기능(함수)을 묶음으로 사용하는 것 
 	3. 추상화
-		존재하지 않는 형태의 함수만 모인 클래스를 추상 클래스라고 한다.
-		ex) 대명사들(그거, 저거, 학생, 군인, 노인 등), 대상이 특정되지 않는 경우
-		ex) 홍길동은 학생이다 -> 홍길동이라는 특정 대상이 있는 객체이므로 추상의 형태로 볼 수 있음.
-		
 	4. 상속
-		진짜 말 그대로 상속.
 	5. 다형성
-		내가 편하기 위해 사용하는데 형태는 하나다. 그걸 벗어날 수는 없는데, 그걸 마치 그 형태가 다른 것인 것처럼 쓸 수 있다.
-		본판은 부모지만, 마치 자식인 것 처럼 쓸 수 있다.
 	6. namespace
-		별도의 영역을 지정하여 동일한 이름의 함수를 사용할 수 있도록 함
 	7. 생성자, 소멸자, 복사생성자
 	8. 깊은 복사, 앝은 복사
 	9. 오버로딩, 오버라이딩
 	10. 연산자 오버로딩
 	11. 포인터(복습)
 	12. 
-		
-*/
-
-// object의 개념
-/*
-	물건 하나 = 객체
-	class = 집합
-	프로그램은 하나부터 열까지 수학이다.
-	객체가 모여서 하나의 객체가 되고, 그 객체들이 모여서 하나의 객체가 될 수 있다.
-	무엇이든 하나의 객체가 될 수 있다.
-	모든 객체는 class로 만들어져 있다.
-	하지만 모든 class가 객체는 아니다. (추상 class가 있기 때문)
-	class는 설명서, 그 자체는 아니다.
-*/
-
-/*
-namespace AAA
-{
-	void Output()
-	{
-		cout << "홍길동" << endl;
-	}
-}
-
-using AAA::Output;
-
-namespace BBB
-{
-	void Output()
-	{
-		cout << "임꺽정" << endl;
-	}
-}
-
-using namespace BBB;
-*/
-
-// 런타임 이후에는 stack과 heap이 올라간다
-// 런타임 이전에 static이 올라간다(전방)
-
-// 생성자 & 소멸자 & 
-
-/*
-Parent* p[16];
-
-const int id_Child = 0;
-const int id_Bullet = 1;
-
-p[id_Child] = new Child;
-p[id_Bullet] = new Child;
-
-Child c;
-
-for (int i = 0; i < 2; i++)
-{
-	p[i]->Initialize();
-	p[i]->Output();
-}
-
-return 0;
 */

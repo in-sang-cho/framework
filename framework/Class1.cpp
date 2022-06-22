@@ -3,6 +3,8 @@
 
 using namespace std;
 
+/*
+
 void Parent::Update()
 {
 }
@@ -21,3 +23,4 @@ void AAA::Output()
 {
 	cout << m_str << endl;
 }
+*/
