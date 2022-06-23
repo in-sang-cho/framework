@@ -1,217 +1,107 @@
-// framework v0.3
+// framework v1.0
 
-#define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
-#include "Class1.h"
-#include <string>
-#include <vector>
-#include <map>
-#include <list>
+#include "MainUpdate.h"
 
-struct tagInfo
-{
-	int Number;
-
-	tagInfo() { };
-	~tagInfo() { };
-};
-
-// 생성자, 소멸자, 복사생성자
-// 깊은복사, 얕은복사
-/* 
-
-class Object
-{
-	
-};
-
-int main()
-{
-}
-*/
-
-// 오버로딩, 오버라이딩
-/*
-	함수 내에서 똑같은 이름을 쓸 수 있는 3가지 방법
-	namespace::
-	오버로딩: 전달값의 갯수와 자료형에 따라서 선택적(자동)으로 호출되는 함수(복사생성자와 같다) 본인 클래스 내에서만 사용 가능
-	오버라이딩: 함수 이름과 전달값의 갯수, 자료형마저 완벽하게 일치하는 함수지만, 범위가 가족 함수로 넓다.
-	두 개가 전혀 다른 기능이므로 동시에 사용이 가능하다. 
-	결국은 어떻게 사용하고 호출할 것인가가 핵심이다.
-
-class Object
-{
-public:
-	virtual void Output()					────────────┬────────────────────────┐
-	{													│						 │
-		cout << "" << endl;								│						 │
-	}													│						 │
-										overloading		│						 │
-	virtual void Output(string _Obj)					│						 │
-	{													│						 │
-		cout << "" << endl;								│						 │
-	}										────────────┘					     │
-}																			     │
-															overriding		     │
-class AAA : public Object													     │
-{																			     │
-public:																		     │
-	void Output() override					────────────┐					     │
-	{													│						 │
-		cout << "" << endl;								│						 │
-	}													│						 │
-										overloading		│						 │
-	void Output(string _Obj) override					│						 │
-	{													│						 │
-		cout << "" << endl;								│						 │
-	}										────────────┴────────────────────────┘
-}
-*/
-
-// 연산자 오버로딩
-/*
-	
-*/
-
-
-
-class Object
+class Singleton		// 싱글톤 클래스, 관리자
 {
 private:
-	int Number;
-	tagInfo Info;
+	static Singleton* Instance;
 
 public:
-	Object& operator=(const Object& _Obj)		//	operator= <- 기능을 하나 더 만들어보겠다
+	static Singleton* GetInstance()
 	{
-		Info.Number += _Obj.Info.Number;
-		return *this;
+		if (Instance == nullptr)
+			Instance = new Singleton;
+
+		return Instance;
 	}
 
-	Object& operator++()
-	{
-		Info.Number += 1;
-		return *this;
-	}
-
-	void Output()
-	{
-		cout << Number << endl;
-	}
-
-public:
-	Object() { };
-	Object(int _Number) : Number{ _Number } { };
-	~Object() { };
-};
-/*
-class Object
-{
 private:
-	
-public:
-	int Number = 0;
-	char Name = 'a';
+	int Number;
 
 public:
-	virtual Object* Clone() = 0;
+	int GetNumber() const { return Number; }
+	void SetNumber(const int& _Number) { Number = _Number; }
 
-
-
-
+private:
+	Singleton() : Number(0) {};
 public:
-	// ** 사용자가 호출하지 않아도 스스로 호출된다
-	// ** 클래스가 생성된 직후 호출
-	Object()    // <- 생성자
-	{
-		cout << "생성자" << endl;
-	};
-	
-	// ** 사용자가 호출하는 시점에 호출된다
-	// ** 전달값의 갯수와 자료형에 따라서 선택적(자동)으로 호출됨
-	Object(int _Number) : Number(_Number)	// <- 복사 생성자─┐
-	{										//				 │
-		cout << "복사 생성자 int" << endl;	//				 │
-											//				 ↓
-		//Number = _Number;					// 깊은 복사의 도입부
-
-	};
-
-	/*
-	Object(float _Number)    // <- 복사 생성자
-	{
-		cout << "복사 생성자 float" << endl;
-
-		Number = (int)_Number;
-	};
-	Object(char _Name)
-	{
-		cout << "복사 생성자" << endl;
-
-		Name = _Name;
-	};
-
-	Object(tagInfo _Info)
-	{
-
-	}
-
+	~Singleton() {};
 };
 
-class AAA : public Object
-{
-protected:
-	tagInfo m_Info;
-
-public:
-	virtual Object* Clone() override { return new AAA(*this); }
-
-	void Output() { cout << m_Info.Number << endl; }
-
-public:
-	AAA() {	};
-	AAA(tagInfo _Info) : Object(_Info) { };
-	~AAA() { };
-};
-
-map<string, Object*> PrototypeObject;
-
-Object* GetObject(string _str)
-{
-	map<string, Object*>::iterator iter = PrototypeObject.find(_str);
-	if (iter == PrototypeObject.end())
-		return nullptr;
-	else
-		return iter->second;
-
-	return nullptr;
-}
-*/
+Singleton* Singleton::Instance;
 
 int main(void)
 {
-	Object o1(10);
-	Object o2(o1);
+	Singleton::GetInstance()->SetNumber(10);
+	cout << Singleton::GetInstance()->GetNumber() << endl;
+	/*
+	MainUpdate Main;
+	Main.Initialize();
 
-	o2 = o1;
+	ULONGLONG Time = GetTickCount64();	//	1/1000초 를 반환한다.
 
-	++o2;
+	while (true)
+	{
+		if (Time + 50 < GetTickCount64())
+		{
+			Time = GetTickCount64();
+
+			system("cls");
+
+			Main.Update();
+			Main.Render();
+		}
+	}
+	*/
 
 	return 0;
 }
 
-// c++의 5가지 특징
-/*4
-	1. 정보은닉
-	2. 캡슐화
-	3. 추상화
-	4. 상속
-	5. 다형성
-	6. namespace
-	7. 생성자, 소멸자, 복사생성자
-	8. 깊은 복사, 앝은 복사
-	9. 오버로딩, 오버라이딩
-	10. 연산자 오버로딩
-	11. 포인터(복습)
-	12. 
+// ** 포인터
+/*
+	1. [*] 데이터, [&] 주소반환연산자
+	2. 포인터 변수라면 묻지도 따지지도 말고 [동적할당(New)]
+	3. 클래스&구조체는 [.]점 아니면 [->]화살표 로 호출하라
+	
+	4. [동적할당] 했다면 반드시 [할당해제(Delete)]
 */
+
+// const 사용 시기
+/*
+	const -> 상수화 키워드
+	어디서 어떻게 사용하든 크게 문제가 되지 않는다.
+	사실 쓰지 않아도 상관은 없다. 하지만, 상수화시켜야 할 때가 있기 때문에 만들어 둔 것.
+	(현업에서는 다른 사람에게 코딩 시 값 변경하지 말라 부탁하는 용도)
+*/
+
+// & 사용 시기
+/*
+	operator의 기능을 표현하기 위해 C++ (++ 연산자가 됨)
+	이항 연산일 때의 & 연산은 비트 연산자(1이 있느냐 없느냐) A+B & C-D
+	&& 연산자 = 논리 연산자(둘 다 참인가, 그렇지 않은가)	 A=0 && B!=0
+
+	단항으로 쓰일 때는 변수 앞에 붙으면 주소 반환 연산자로 쓰인다.
+	reference 연산자(참조 연산자)는 데이터 타입에 붙어야 된다.
+	reference 연산자를 들고 올 때는 반드시 const가 붙는다21
+*/
+
+// 루프 도는 기준
+
+// 턴제 게임과 실시간 전략 게임
+/*
+	실시간처럼 보이지만 결국에는 턴제일 수 밖에 없다.
+	-> 실행되는 순서는 결정되어 있다.
+*/
+
+// ** GetTickCount 대략 49일
+// ** GetTickCOunt64 대략 5억년
+
+// ** 싱글톤 클래스(Singleton Class)
+/*
+	장소에 구애없이 막 갖다쓸 수 있도록 만들어져야한다
+	관리자의 개념으로 사용할 것이다 (서버실)
+*/
+
+// 큰 범위 부터 만들고 세부 범위로 내려가는 것이다.

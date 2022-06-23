@@ -1,7 +1,9 @@
 #pragma once
 
-#include "Class1.h"
-#include "Child.h"
+#include <Windows.h>
 #include <iostream>
+#include <vector>
+#include <list>
+#include <map>
 
 using namespace std;

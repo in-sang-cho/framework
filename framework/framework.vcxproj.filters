@@ -13,33 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Parent">
-      <UniqueIdentifier>{2719c461-dcf8-42ad-8fc1-377653ae9ab5}</UniqueIdentifier>
+    <Filter Include="소스 파일\MainUpdate">
+      <UniqueIdentifier>{022e8d6a-7b28-47d6-abd3-d0d361ef4999}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Parent\Child">
-      <UniqueIdentifier>{79761e1e-2f06-4bff-a2a0-aa683e97dd49}</UniqueIdentifier>
+    <Filter Include="소스 파일\99. Manager">
+      <UniqueIdentifier>{e84a1675-c1c3-4b69-9bbe-57608fc830b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\SceneManager">
+      <UniqueIdentifier>{d185d5e4-d07a-4579-9ac3-a0b8ba7f6e51}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Class1.cpp">
-      <Filter>소스 파일\Parent</Filter>
+    <ClCompile Include="MainUpdate.cpp">
+      <Filter>소스 파일\MainUpdate</Filter>
     </ClCompile>
-    <ClCompile Include="Child.cpp">
-      <Filter>소스 파일\Parent\Child</Filter>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\99. Manager\SceneManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class1.h">
-      <Filter>소스 파일\Parent</Filter>
-    </ClInclude>
     <ClInclude Include="Headers.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Child.h">
-      <Filter>소스 파일\Parent\Child</Filter>
+    <ClInclude Include="MainUpdate.h">
+      <Filter>소스 파일\MainUpdate</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\99. Manager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
