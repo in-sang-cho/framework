@@ -35,7 +35,7 @@ void InputManager::InputKey()
 		Key |= KYE_SPACE;
 
 	if (GetAsyncKeyState(VK_RETURN))
-		Key |= KYE_ENTER;
+		Key |= KYE_RETURN;
 
 	if (GetAsyncKeyState(VK_CONTROL))
 		Key |= KYE_CTRL;

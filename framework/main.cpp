@@ -4,7 +4,6 @@
 #include "MainUpdate.h"
 
 
-
 int main(void)
 {
 	MainUpdate Main;

@@ -8,7 +8,5 @@
 
 using namespace std;
 
-
-
-#include "Constant.h"
+#include "Define.h"
 #include "Enum.h"
