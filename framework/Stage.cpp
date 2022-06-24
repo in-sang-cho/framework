@@ -1,33 +1,31 @@
 #include "Stage.h"
+#include "Player.h"
 #include "SceneManager.h"
-#include "InputManager.h"
 
-Stage::Stage()
-{
-}
+Stage::Stage() : pPlayer(nullptr) { }
+Stage::~Stage() { Release(); }
 
-Stage::~Stage()
-{
-}
 
 void Stage::Initialize()
 {
+	pPlayer = new Player;
+	pPlayer->Initialize();
 }
 
 void Stage::Update()
 {
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	pPlayer->Update();
 
-	if (dwKey & KYE_RETURN)
-	{
-		SceneManager::GetInstance()->SetScene(STAGE);
-	}
+	
 }
 
 void Stage::Render()
 {
+	pPlayer->Render();
 }
 
 void Stage::Release()
 {
+	delete pPlayer;
+	pPlayer = nullptr;
 }
