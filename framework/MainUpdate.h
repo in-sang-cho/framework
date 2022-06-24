@@ -9,6 +9,9 @@ public:
 	int count;
 	MainUpdate();
 	~MainUpdate();
+	/*
+	SCENEID SceneState;
+	*/
 
 public:
 	void Initialize();

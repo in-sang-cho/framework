@@ -23,6 +23,8 @@ void SceneManager::SetScene(SCENEID _SceneState)
 
 		break;
 	}
+
+	Sleep(500);
 };
 
 SceneManager::SceneManager()
