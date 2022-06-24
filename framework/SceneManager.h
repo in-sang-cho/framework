@@ -1,12 +1,10 @@
 #pragma once
 #include "Headers.h"
-#include "Enum.h"
 
 class SceneManager
 {
 private:
 	static SceneManager* Instance;
-
 public:
 	static SceneManager* GetInstance()
 	{
@@ -15,17 +13,12 @@ public:
 
 		return Instance;
 	}
-
 private:
-	
 
 public:
-	void SetScene(SCENEID _SceneState);
-
+	void SetScene(int _SceneState);
 private:
 	SceneManager();
-
 public:
 	~SceneManager();
 };
-

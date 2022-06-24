@@ -1,12 +1,10 @@
 #pragma once
-
 #include "Headers.h"
 
 class InputManager
 {
 private:
 	static InputManager* Instance;
-
 public:
 	static InputManager* GetInstance()
 	{
@@ -15,16 +13,15 @@ public:
 
 		return Instance;
 	}
-
 private:
-	DWORD Key = 0;
+	DWORD Key;
+public:
+	DWORD GetKey() const { return Key; }
 
 public:
 	void InputKey();
-
 private:
-
-public:
 	InputManager();
+public:
 	~InputManager();
 };
