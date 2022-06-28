@@ -17,7 +17,7 @@ void Player::Initialize()
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
 }
 
-void Player::Update()
+int Player::Update()
 {
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -41,6 +41,8 @@ void Player::Update()
 
 		ObjectManager::GetInstance()->AddObject(pBullet);
 	}
+
+	return 0;
 }
 
 void Player::Render()

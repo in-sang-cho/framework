@@ -1,6 +1,7 @@
 #include "Stage.h"
 #include "Player.h"
 #include "SceneManager.h"
+#include "Enemy.h"
 //#include "CursorManager.h"
 #include "ObjectManager.h"
 
@@ -10,10 +11,13 @@ Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
-	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
+	Object* pEnemy = new Enemy;
+	pEnemy->Initialize();
 
-	if (pPlayerList != nullptr)
-		pPlayer = pPlayerList->front();
+	for (int i = 0; i < 5; ++i)
+	{
+		pEnemyList.push_back(pEnemy->Clone());
+	}
 }
 
 void Stage::Update()
@@ -22,7 +26,17 @@ void Stage::Update()
 
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 
-
+	if (pBulletList != nullptr)
+	{
+		for (list<Object*>::iterator iter = pBulletList->begin();
+			iter != pBulletList->end();)
+		{
+			if ((*iter)->GetPosition().x >= 120.0f)
+				iter = pBulletList->erase(iter);
+			else
+				++iter;
+		}
+	}
 }
 
 void Stage::Render()

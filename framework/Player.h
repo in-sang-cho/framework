@@ -8,9 +8,11 @@ private:
 	int Vertical;
 public:
 	virtual void Initialize()override;
-	virtual void Update()override;
+	virtual int Update()override;
 	virtual void Render()override;
 	virtual void Release()override;
+
+	virtual void Clone()override { return new Player(*this); }
 public:
 	Player();
 	virtual ~Player();

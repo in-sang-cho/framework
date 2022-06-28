@@ -29,7 +29,7 @@ void Logo::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_ENTER)
-		SceneManager::GetInstance()->SetScene(MENU);
+		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 }
 
 void Logo::Render()

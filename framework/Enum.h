@@ -1,6 +1,6 @@
 #pragma once
 
-enum SCENEID
+enum class SCENEID
 {
 	LOGO,
 	MENU,

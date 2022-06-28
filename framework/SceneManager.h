@@ -1,5 +1,6 @@
 #pragma once
 #include "Headers.h"
+#include "Enum.h"
 
 class Scene;
 class SceneManager

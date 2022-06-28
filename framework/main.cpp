@@ -1,4 +1,4 @@
-// ** Framework v5.2
+// ** Framework v5.1
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -24,9 +24,9 @@ int main(void)
 		}
 	}
 
-
 	return 0;
 }
+
 
 // 적는 순서: 필요해서 써야 하는 순서
 /*

@@ -8,7 +8,7 @@ protected:
 	string strKey;
 public:
 	virtual void Initialize()PURE;
-	virtual void Update()PURE;
+	virtual int Update()PURE;
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 public:
@@ -22,5 +22,6 @@ public:
 	void SetScale(float _x, float _y) { TransInfo.Scale = Vector3(_x, _y); }
 public:
 	Object();
+	Object(Transform _TransInfo) : TransInfo(_TransInfo) { };
 	virtual ~Object();
 };
