@@ -2,23 +2,34 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 
-Logo::Logo() : Scene("") { }
+#include "ObjectManager.h"
+#include "Player.h"
+#include "Enemy.h"
 
+Logo::Logo() : Scene("") { }
 Logo::~Logo() { }
+
 
 void Logo::Initialize()
 {
 	str = "Logo";
+
+	Object* pPlayer = new Player;
+	pPlayer->Initialize();
+
+	Object* pEnemy = new Enemy;
+	pEnemy->Initialize();
+
+	ObjectManager::GetInstance()->AddObject(pPlayer);
+	ObjectManager::GetInstance()->AddObject(pEnemy);
 }
 
 void Logo::Update()
 {
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (dwKey& KYE_RETURN)
-	{
-		SceneManager::GetInstance()->SetScene(LOGO);
-	}
+	if (dwKey & KEY_ENTER)
+		SceneManager::GetInstance()->SetScene(MENU);
 }
 
 void Logo::Render()
