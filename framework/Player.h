@@ -12,8 +12,9 @@ public:
 	virtual void Render()override;
 	virtual void Release()override;
 
-	virtual void Clone()override { return new Player(*this); }
+	virtual Object* Clone()override { return new Player(*this); }
 public:
 	Player();
+	Player(Transform _TransInfo);
 	virtual ~Player();
 };
