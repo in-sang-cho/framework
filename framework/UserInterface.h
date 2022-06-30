@@ -1,20 +1,21 @@
 #pragma once
 #include "Headers.h"
+#include "CursorManager.h"
 
-class Object
+class UserInterface
 {
 protected:
 	Transform TransInfo;
 	string strKey;
 
-	char* Buffer[MAX_SIZE];
+	vector<string> TextureList;
 public:
 	virtual void Initialize()PURE;
 	virtual int Update()PURE;
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 
-	virtual Object* Clone()PURE;
+	virtual UserInterface* Clone()PURE;
 public:
 	string GetKey() const { return strKey; }
 
@@ -25,7 +26,7 @@ public:
 	Vector3 GetScale() const { return TransInfo.Scale; }
 	void SetScale(float _x, float _y) { TransInfo.Scale = Vector3(_x, _y); }
 public:
-	Object();
-	Object(Transform _TransInfo);
-	virtual ~Object();
+	UserInterface();
+	UserInterface(Transform _TransInfo);
+	virtual ~UserInterface();
 };

@@ -10,8 +10,8 @@ void Bullet::Initialize()
 {
 	strKey = "Bullet";
 
-	Buffer[0] = (char*)"в┘";
-	Buffer[1] = (char*)"в╓";
+	Buffer[0] = (char*)"жд";
+	Buffer[1] = (char*)"же";
 
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
@@ -31,7 +31,7 @@ void Bullet::Render()
 	{
 		CursorManager::Draw(
 			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
-			TransInfo.Position.y - (TransInfo.Scale.x * 0.5f) + i,
+			TransInfo.Position.y - (TransInfo.Scale.y * 0.5f) + i,
 			Buffer[i]);
 	}
 }

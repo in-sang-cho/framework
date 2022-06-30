@@ -58,6 +58,12 @@
     <Filter Include="소스 파일\99. Manager\CollisionManager">
       <UniqueIdentifier>{76685f55-86f8-41c6-b53e-4e35a27a0817}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\BackGround">
+      <UniqueIdentifier>{ab84f595-3f3d-4c5e-a284-44e190114f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\o3. UserInterface">
+      <UniqueIdentifier>{82ee1250-4daa-47ec-88b2-0ab310546465}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -98,6 +104,18 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>소스 파일\02. Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>소스 파일\02. Object\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>소스 파일\o3. UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBox.cpp">
+      <Filter>소스 파일\o3. UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Cloud.cpp">
+      <Filter>소스 파일\o3. UserInterface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +175,21 @@
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>소스 파일\99. Manager\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>소스 파일\99. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>소스 파일\02. Object\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>소스 파일\o3. UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBox.h">
+      <Filter>소스 파일\o3. UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud.h">
+      <Filter>소스 파일\o3. UserInterface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-// ** Framework v6.2
+// ** Framework v7.0 ObjectFactory
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
