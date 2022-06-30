@@ -1,4 +1,4 @@
-// ** Framework v5.2
+// ** Framework v6.2
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -13,7 +13,7 @@ int main(void)
 
 	while (true)
 	{
-		if (Time + 150 < GetTickCount64())
+		if (Time + 50 < GetTickCount64())
 		{
 			Time = GetTickCount64();
 

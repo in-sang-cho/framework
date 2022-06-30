@@ -2,11 +2,11 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "SceneManager.h"
-#include "CursorManager.h"
 #include "CollisionManager.h"
+#include "CursorManager.h"
 #include "ObjectManager.h"
 
-Stage::Stage() : pPlayer(nullptr) { }
+Stage::Stage() { }
 Stage::~Stage() { Release(); }
 
 
@@ -21,7 +21,7 @@ void Stage::Initialize()
 
 		Object* pEnemy = pEnemyProto->Clone();
 		//pEnemy->SetPosition(118.0f, float(rand() % 30));
-		pEnemy->SetPosition(float(rand() % 118), float(rand() & 30));
+		pEnemy->SetPosition(float(rand() % 118), float(rand() % 30));
 
 		ObjectManager::GetInstance()->AddObject(pEnemy);
 	}
@@ -31,9 +31,9 @@ void Stage::Update()
 {
 	ObjectManager::GetInstance()->Update();
 
-	Object* pPlayerList = ObjectManager::GetInstance()->GetObjectList("P")->front();
-	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("o");
-	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("E");
+	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 
 	if (pBulletList != nullptr)
 	{
@@ -57,22 +57,22 @@ void Stage::Update()
 			{
 				if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
 				{
-					CursorManager::Draw(50.0f, 1.0f, "충돌입니다");
+					CursorManager::Draw(50.0f, 1.0f, "충돌입니다.");
 				}
 			}
 		}
 	}
-	
-	if (pPlayerList != nullptr && pEnemyList != nullptr)
+
+	if (pPlayer != nullptr && pEnemyList != nullptr)
 	{
-			for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
-				Enemyiter != pEnemyList->end(); ++Enemyiter)
+		for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
+			Enemyiter != pEnemyList->end(); ++Enemyiter)
+		{
+			if (CollisionManager::Collision(pPlayer, *Enemyiter))
 			{
-				if (CollisionManager::Collision(pPlayerList, *Enemyiter))
-				{
-					CursorManager::Draw(50.0f, 1.0f, "충돌입니다");
-				}
+				CursorManager::Draw(50.0f, 1.0f, "충돌입니다.");
 			}
+		}
 	}
 }
 
@@ -83,5 +83,5 @@ void Stage::Render()
 
 void Stage::Release()
 {
-	::Safe_Delete(pPlayer);
+
 }

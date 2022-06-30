@@ -1,5 +1,4 @@
 #include "ObjectManager.h"
-#include "CollisionManager.h"
 #include "Object.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
@@ -59,6 +58,7 @@ void ObjectManager::Update()
 			}
 			else
 				++iter2;
+
 		}
 	}
 }

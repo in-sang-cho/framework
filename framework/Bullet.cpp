@@ -10,9 +10,12 @@ void Bullet::Initialize()
 {
 	strKey = "Bullet";
 
+	Buffer[0] = (char*)"¢Ù";
+	Buffer[1] = (char*)"¢Ö";
+
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(2.0f, 1.0f);
+	TransInfo.Scale = Vector3(2.0f, 2.0f);
 }
 
 int Bullet::Update()
@@ -24,10 +27,13 @@ int Bullet::Update()
 
 void Bullet::Render()
 {
-	CursorManager::Draw(
-		TransInfo.Position.x + (TransInfo.Scale.x * 0.5f),
-		TransInfo.Position.y,
-		strKey);
+	for (int i = 0; i < MAX_SIZE; ++i)
+	{
+		CursorManager::Draw(
+			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
+			TransInfo.Position.y - (TransInfo.Scale.x * 0.5f) + i,
+			Buffer[i]);
+	}
 }
 
 void Bullet::Release()

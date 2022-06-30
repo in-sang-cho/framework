@@ -4,8 +4,6 @@
 
 class Scene
 {
-protected:
-	string str;
 public:
 	virtual void Initialize()PURE;
 	virtual void Update()PURE;
