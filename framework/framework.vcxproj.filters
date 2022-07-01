@@ -191,5 +191,8 @@
     <ClInclude Include="Cloud.h">
       <Filter>소스 파일\o3. UserInterface</Filter>
     </ClInclude>
+    <ClInclude Include="MathManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
