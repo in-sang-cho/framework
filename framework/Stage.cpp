@@ -39,6 +39,9 @@ void Stage::Update()
 {
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
+	if (dwKey & KEY_ENTER)
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+
 	if (dwKey & KEY_TAB)
 	{
 		Enable_UI();
@@ -71,7 +74,6 @@ void Stage::Update()
 			{
 				if (CollisionManager::Collision(pPlayer, *Enemyiter))
 				{
-					CursorManager::Draw(50.0f, 1.0f, "충돌입니다.");
 				}
 
 				if (pBulletList != nullptr)
@@ -81,7 +83,6 @@ void Stage::Update()
 					{
 						if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
 						{
-							CursorManager::Draw(50.0f, 1.0f, "충돌입니다.");
 						}
 					}
 				}

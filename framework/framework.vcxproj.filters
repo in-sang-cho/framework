@@ -117,6 +117,9 @@
     <ClCompile Include="Cloud.cpp">
       <Filter>소스 파일\o3. UserInterface</Filter>
     </ClCompile>
+    <ClCompile Include="CursorManager.cpp">
+      <Filter>소스 파일\99. Manager\CurserMamager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">

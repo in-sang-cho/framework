@@ -3,21 +3,31 @@
 
 class CursorManager
 {
+private:
+	static CursorManager* Instance;
 public:
-	static void SetCursorPosition(float _x, float _y)
-		//	커서의 위치를 바꿔주는 함수
+	static CursorManager* GetInstance()
 	{
-		COORD Pos = { (SHORT)_x, (SHORT)_y };
-		SetConsoleCursorPosition(
-			GetStdHandle(STD_OUTPUT_HANDLE), Pos);
-			// 표준 콘솔 창 위치를 Pos로 바꿔라
-	}
+		if (Instance == nullptr)
+			Instance = new CursorManager;
 
-	static void Draw(float _x, float _y, string _str)
-		//	커서의 위치를 바꿔주는 함수
-	{
-		SetCursorPosition(_x, _y);
-		cout << _str;
+		return Instance;
 	}
+private:
+	int BufferIndex;	// ** 버퍼의 인덱스접근을 위한 변수
+	HANDLE hBuffer[2];	// ** 2개의 버퍼
+public:
+	void CreateBuffer(const int& _Width, const int& _Height);			// ** 버퍼를 생성
+	void WriteBuffer(float _X, float _Y, char* _str, int _Color);		// ** 버퍼를 작성(그리기)
+	void WriteBuffer(Vector3 _Position, char* _str, int _Color);		// ** 버퍼를 작성(그리기)
+	void FilppingBuffer();												// ** 버퍼를 전환
+	void ClearBuffer();													// ** 작성한 버퍼 지우기 
+	void DestroyBuffer();												// ** 버퍼 해제
+	void SetColor(int _Color);											// ** 문자열 색상 변경
+private:
+	
+	CursorManager();
+public:
+	~CursorManager();
 };
 
