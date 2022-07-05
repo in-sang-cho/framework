@@ -111,3 +111,4 @@ void Stage::Enable_UI()
 {
 	Check = !Check;
 }
+

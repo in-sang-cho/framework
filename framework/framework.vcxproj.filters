@@ -61,8 +61,14 @@
     <Filter Include="소스 파일\02. Object\BackGround">
       <UniqueIdentifier>{ab84f595-3f3d-4c5e-a284-44e190114f43}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\o3. UserInterface">
+    <Filter Include="소스 파일\98. Pattern">
+      <UniqueIdentifier>{a1cb44b7-fd48-4d30-989d-976d163313ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface">
       <UniqueIdentifier>{82ee1250-4daa-47ec-88b2-0ab310546465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\ObjectFactory">
+      <UniqueIdentifier>{ed1c04ed-2413-47d2-8480-6dd5a57be55d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -109,16 +115,19 @@
       <Filter>소스 파일\02. Object\BackGround</Filter>
     </ClCompile>
     <ClCompile Include="UserInterface.cpp">
-      <Filter>소스 파일\o3. UserInterface</Filter>
+      <Filter>소스 파일\03. UserInterface</Filter>
     </ClCompile>
     <ClCompile Include="ScrollBox.cpp">
-      <Filter>소스 파일\o3. UserInterface</Filter>
+      <Filter>소스 파일\03. UserInterface</Filter>
     </ClCompile>
     <ClCompile Include="Cloud.cpp">
-      <Filter>소스 파일\o3. UserInterface</Filter>
+      <Filter>소스 파일\03. UserInterface</Filter>
     </ClCompile>
     <ClCompile Include="CursorManager.cpp">
       <Filter>소스 파일\99. Manager\CurserMamager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>소스 파일\98. Pattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -179,23 +188,26 @@
     <ClInclude Include="CollisionManager.h">
       <Filter>소스 파일\99. Manager\CollisionManager</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectFactory.h">
-      <Filter>소스 파일\99. Manager</Filter>
-    </ClInclude>
     <ClInclude Include="BackGround.h">
       <Filter>소스 파일\02. Object\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="UserInterface.h">
-      <Filter>소스 파일\o3. UserInterface</Filter>
+      <Filter>소스 파일\03. UserInterface</Filter>
     </ClInclude>
     <ClInclude Include="ScrollBox.h">
-      <Filter>소스 파일\o3. UserInterface</Filter>
+      <Filter>소스 파일\03. UserInterface</Filter>
     </ClInclude>
     <ClInclude Include="Cloud.h">
-      <Filter>소스 파일\o3. UserInterface</Filter>
+      <Filter>소스 파일\03. UserInterface</Filter>
     </ClInclude>
     <ClInclude Include="MathManager.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>소스 파일\98. Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>소스 파일\99. Manager\ObjectFactory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
