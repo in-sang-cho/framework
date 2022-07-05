@@ -1,20 +1,11 @@
 #include "ObjectPool.h"
 #include "Object.h"
+#include "ObjectManager.h"
 
 ObjectPool* ObjectPool::Instance = nullptr;
 
 ObjectPool::ObjectPool() { }
 ObjectPool::~ObjectPool() { }
-
-void ObjectPool::AddObject(string _Key, list<Object*> _List)
-{
-	EnableList.insert(make_pair(_Key, _List));
-}
-
-void ObjectPool::AddObject(Object* _Object)
-{
-
-}
 
 void ObjectPool::Update()
 {
