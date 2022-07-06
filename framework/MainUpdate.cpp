@@ -10,9 +10,8 @@ MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
-	CursorManager::GetInstance()->CreateBuffer(ConsoleWidthSize, ConsoleHeightSize);
-
 	SceneManager::GetInstance()->SetScene(SCENEID::LOGO);
+	CursorManager::GetInstance()->CreateBuffer(ConsoleWidthSize, ConsoleHeightSize);
 }
 
 void MainUpdate::Update()
@@ -20,7 +19,7 @@ void MainUpdate::Update()
 	InputManager::GetInstance()->InputKey();
 	SceneManager::GetInstance()->Update();
 
-	CursorManager::GetInstance()->FilppingBuffer();
+	CursorManager::GetInstance()->FlippingBuffer();
 }
 
 void MainUpdate::Render()

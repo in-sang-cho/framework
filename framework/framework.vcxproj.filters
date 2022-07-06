@@ -70,6 +70,9 @@
     <Filter Include="소스 파일\99. Manager\ObjectFactory">
       <UniqueIdentifier>{ed1c04ed-2413-47d2-8480-6dd5a57be55d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\MathManager">
+      <UniqueIdentifier>{678a9ce9-7ef2-48f3-9d77-62a40653be0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -200,14 +203,14 @@
     <ClInclude Include="Cloud.h">
       <Filter>소스 파일\03. UserInterface</Filter>
     </ClInclude>
-    <ClInclude Include="MathManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="ObjectPool.h">
       <Filter>소스 파일\98. Pattern</Filter>
     </ClInclude>
     <ClInclude Include="ObjectFactory.h">
       <Filter>소스 파일\99. Manager\ObjectFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="MathManager.h">
+      <Filter>소스 파일\99. Manager\MathManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

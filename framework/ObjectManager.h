@@ -19,7 +19,6 @@ private:
 public:
 	void AddObject(Object* _Object);
 	list<Object*>* GetObjectList(string _strKey);
-
 	void Update();
 	void Render();
 private:

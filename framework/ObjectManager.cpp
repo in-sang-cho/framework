@@ -1,6 +1,6 @@
 #include "ObjectManager.h"
-#include "Object.h"
 #include "ObjectPool.h"
+#include "Object.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
 
@@ -19,7 +19,7 @@ void ObjectManager::AddObject(Object* _Object)
 {
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
 
-	if (iter == ObjectPool::GetInstance()->GetEnableList()->end())
+	if (iter == EnableList->end())
 	{
 		list<Object*> TempList;
 		TempList.push_back(_Object);
