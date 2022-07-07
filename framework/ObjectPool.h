@@ -11,17 +11,15 @@ public:
 	{
 		if (Instance == nullptr)
 			Instance = new ObjectPool;
-
 		return Instance;
 	}
 private:
 	static map<string, list<Object*>> EnableList;
 	map<string, list<Object*>> DisableList;
-
 public:
-	static  map<string, list<Object*>>* GetEnableList() { return &EnableList; }
+	static map<string, list<Object*>>* GetEnableList() { return &EnableList; }
+	void CatchObject(Object* _Object);
 	void Update();
-
 private:
 	ObjectPool();
 public:

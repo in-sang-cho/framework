@@ -17,6 +17,8 @@ ObjectManager::~ObjectManager()
 
 void ObjectManager::AddObject(Object* _Object)
 {
+	
+
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
 
 	if (iter == EnableList->end())
@@ -37,6 +39,17 @@ list<Object*>* ObjectManager::GetObjectList(string _strKey)
 		return nullptr;
 
 	return &iter->second;
+}
+
+list<Object*>::iterator ObjectManager::ThrowObject(list<Object*>::iterator _Where, Object* _Object)
+{
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
+
+	if (iter == EnableList->end())
+		return _Where;
+
+	ObjectPool::GetInstance()->CatchObject(_Object);
+	return iter->second.erase(_Where);
 }
 
 void ObjectManager::Update()

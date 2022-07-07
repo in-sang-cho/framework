@@ -2,7 +2,6 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "ScrollBox.h"
-#include "Cloud.h"
 #include "SceneManager.h"
 #include "CollisionManager.h"
 #include "InputManager.h"
@@ -39,9 +38,6 @@ void Stage::Update()
 {
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (dwKey & KEY_ENTER)
-		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
-
 	if (dwKey & KEY_TAB)
 	{
 		Enable_UI();
@@ -72,8 +68,11 @@ void Stage::Update()
 			for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
 				Enemyiter != pEnemyList->end(); ++Enemyiter)
 			{
-				if (CollisionManager::Collision(pPlayer, *Enemyiter))
+				if (CollisionManager::CircleCollision(pPlayer, *Enemyiter))
 				{
+					(*Enemyiter)->GetKey();
+					Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
+					continue;
 				}
 
 				if (pBulletList != nullptr)
@@ -81,8 +80,9 @@ void Stage::Update()
 					for (list<Object*>::iterator Bulletiter = pBulletList->begin();
 						Bulletiter != pBulletList->end(); ++Bulletiter)
 					{
-						if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
+						if (CollisionManager::CircleCollision(*Bulletiter, *Enemyiter))
 						{
+							Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
 						}
 					}
 				}
@@ -111,4 +111,3 @@ void Stage::Enable_UI()
 {
 	Check = !Check;
 }
-
